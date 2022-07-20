@@ -7,7 +7,7 @@ const props = defineProps({
 
 const store = useBoardsStore();
 
-console.log(store.getBoard(props.id));
+const board = store.getBoard(props.id);
 </script>
 
-<template>{{ props.id }}</template>
+<template>{{ board.title }}</template>
