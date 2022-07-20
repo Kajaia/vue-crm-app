@@ -1,13 +1,7 @@
 <script setup>
-import { useBoardsStore } from "@/stores/boards";
-
-const props = defineProps({
-  id: String,
-});
-
-const store = useBoardsStore();
-
-const board = store.getBoard(props.id);
+import BoardItem from "@/components/boards/BoardItem.vue";
 </script>
 
-<template>{{ board.title }}</template>
+<template>
+  <BoardItem />
+</template>

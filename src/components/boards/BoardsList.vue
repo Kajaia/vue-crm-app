@@ -8,7 +8,7 @@ const { boards } = storeToRefs(store);
 </script>
 
 <template>
-  <div class="row justify-content-center mt-3 gap-3">
+  <div class="row justify-content-center gap-3">
     <div
       v-for="board in boards"
       :key="board.id"

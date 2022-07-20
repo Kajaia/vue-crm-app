@@ -24,9 +24,6 @@ export const useBoardsStore = defineStore({
       },
     ],
   }),
-  getters: {
-    //
-  },
   actions: {
     getBoard(id) {
       return this.boards.find((board) => board.id == id);
