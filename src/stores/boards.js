@@ -24,6 +24,11 @@ export const useBoardsStore = defineStore({
       },
     ],
   }),
+  getters: {
+    getBoard(id) {
+      return this.boards.find((board) => board.id == id);
+    },
+  },
   actions: {
     //
   },

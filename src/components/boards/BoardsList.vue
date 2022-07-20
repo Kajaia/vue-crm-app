@@ -8,7 +8,7 @@ const { boards } = storeToRefs(store);
 </script>
 
 <template>
-  <div class="row justify-content-center mt-3">
+  <div class="row justify-content-center mt-3 gap-3">
     <div
       v-for="board in boards"
       :key="board.id"
@@ -16,7 +16,12 @@ const { boards } = storeToRefs(store);
     >
       <div :class="board.color" class="card border-0 shadow-sm">
         <div class="card-body">
-          <h2 class="fs-5 mb-0">{{ board.title }}</h2>
+          <router-link
+            :to="`boards/${board.id}`"
+            class="stretched-link text-decoration-none text-dark"
+          >
+            <h2 class="fs-5 mb-0">{{ board.title }}</h2>
+          </router-link>
         </div>
       </div>
     </div>
