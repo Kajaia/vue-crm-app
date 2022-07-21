@@ -46,5 +46,13 @@ export const useCardsStore = defineStore({
     getCardsByBoardId(id) {
       return this.cards.filter((card) => card.board_id == id);
     },
+    addCard(title, boardId) {
+      this.cards.push({
+        id: this.cards.length + 1,
+        title: title,
+        position: this.cards.length + 1,
+        board_id: boardId,
+      });
+    },
   },
 });

@@ -1,16 +1,17 @@
 <script setup>
 import { useCardsStore } from "@/stores/cards";
+import { computed } from "@vue/reactivity";
 
 const props = defineProps({
   id: String,
 });
 
 const store = useCardsStore();
-const cards = store.getCardsByBoardId(props.id);
+const cards = computed(() => store.getCardsByBoardId(props.id));
 </script>
 
 <template>
-  <div v-for="card in cards" :key="card.id" class="col-md-4">
+  <div v-for="card in cards" :key="card.id" class="col-md-4 my-3">
     <div class="card shadow-sm">
       <div class="card-header">
         <h2 class="fs-5 mb-0">
