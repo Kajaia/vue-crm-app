@@ -1,0 +1,27 @@
+.bg-light {
+  background-color: #eee !important;
+}
+
+.bg-primary {
+  background-color: #62a0fd !important;
+}
+
+.bg-secondary {
+  background-color: #adb4bb !important;
+}
+
+.bg-success {
+  background-color: #54c28f !important;
+}
+
+.bg-warning {
+  background-color: #fccf47 !important;
+}
+
+.bg-danger {
+  background-color: #e67984 !important;
+}
+
+.bg-info {
+  background-color: #78e0f5 !important;
+}

@@ -1,6 +1,6 @@
 <script setup>
-import toast from "../../alerts/toast";
-import { useCardsStore } from "../../stores/cards";
+import toast from "@/alerts/toast";
+import { useCardsStore } from "@/stores/cards";
 
 const props = defineProps({
   id: Number,

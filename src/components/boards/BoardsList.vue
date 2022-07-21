@@ -49,8 +49,17 @@ const addBoardToggle = ref(false);
         <div
           class="card-body d-flex align-items-center justify-content-between gap-2"
         >
-          <h2 class="fs-5 mb-0">{{ board.title }}</h2>
-          <BoardRemove :id="board.id" :title="board.title" />
+          <h2
+            :class="board.color === 'bg-dark' ? 'text-light' : 'text-dark'"
+            class="fs-5 mb-0"
+          >
+            {{ board.title }}
+          </h2>
+          <BoardRemove
+            :id="board.id"
+            :title="board.title"
+            :color="board.color"
+          />
         </div>
       </div>
     </div>

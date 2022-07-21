@@ -1,7 +1,7 @@
 <script setup>
 import { useCardsStore } from "@/stores/cards";
 import { computed } from "@vue/reactivity";
-import CardRemove from "./CardRemove.vue";
+import CardRemove from "@/components/cards/CardRemove.vue";
 
 const props = defineProps({
   id: String,
