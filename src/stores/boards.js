@@ -42,5 +42,8 @@ export const useBoardsStore = defineStore({
         color: color,
       });
     },
+    removeBoard(id) {
+      this.boards = this.boards.filter((board) => board.id !== id);
+    },
   },
 });

@@ -1,8 +1,9 @@
 <script setup>
 import { storeToRefs } from "pinia";
-import { useBoardsStore } from "@/stores/boards";
 import { ref } from "vue";
-import BoardsForm from "./BoardsForm.vue";
+import { useBoardsStore } from "@/stores/boards";
+import BoardsForm from "@/components/boards/BoardsForm.vue";
+import BoardRemove from "@/components/boards/BoardRemove.vue";
 
 const store = useBoardsStore();
 const { boards } = storeToRefs(store);
@@ -38,15 +39,21 @@ const addBoardToggle = ref(false);
       class="col-12 col-md-6 col-lg-4 col-xl-3 my-2"
     >
       <div :class="board.color" class="card border-0 shadow-sm">
-        <div class="card-body">
-          <router-link
-            :to="`boards/${board.id}`"
-            class="stretched-link text-decoration-none text-dark"
-          >
-            <h2 class="fs-5 mb-0">{{ board.title }}</h2>
-          </router-link>
+        <div
+          class="card-body d-flex align-items-center justify-content-between gap-2"
+        >
+          <h2 class="fs-5 mb-0">{{ board.title }}</h2>
+          <div>
+            <router-link :to="`boards/${board.id}`" class="btn btn-sm">
+              <i class="fas fa-eye fa-sm"></i>
+            </router-link>
+            <BoardRemove :id="board.id" :title="board.title" />
+          </div>
         </div>
       </div>
+    </div>
+    <div v-if="!boards.length">
+      <p class="mb-0 text-center">No boards!</p>
     </div>
   </div>
 </template>
