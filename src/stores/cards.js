@@ -57,5 +57,8 @@ export const useCardsStore = defineStore({
     removeCard(id) {
       this.cards = this.cards.filter((card) => card.id !== id);
     },
+    clearCardsByBoardId(id) {
+      this.cards = this.cards.filter((card) => card.board_id !== id);
+    },
   },
 });

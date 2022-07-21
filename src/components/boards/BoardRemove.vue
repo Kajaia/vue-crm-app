@@ -1,6 +1,8 @@
 <script setup>
 import toast from "@/alerts/toast";
 import { useBoardsStore } from "@/stores/boards";
+import { storeToRefs } from "pinia";
+import { useCardsStore } from "../../stores/cards";
 
 const props = defineProps({
   id: Number,
@@ -10,9 +12,13 @@ const props = defineProps({
 
 const store = useBoardsStore();
 
+const cardsStore = useCardsStore();
+
 const removeBoard = () => {
   console.log(props.id);
   store.removeBoard(props.id);
+
+  cardsStore.clearCardsByBoardId(props.id);
 
   toast("success", `Removed "${props.title}" board`);
 };
