@@ -22,11 +22,25 @@ export const useBoardsStore = defineStore({
         description: "Dolor, sit amet...",
         color: "bg-success",
       },
+      {
+        id: 4,
+        title: "Dolor",
+        description: "Dolor, sit amet...",
+        color: "bg-info",
+      },
     ],
   }),
   actions: {
     getBoard(id) {
       return this.boards.find((board) => board.id == id);
+    },
+    addBoard(title, description, color) {
+      this.boards.push({
+        id: this.boards.length + 1,
+        title: title,
+        description: description,
+        color: color,
+      });
     },
   },
 });
