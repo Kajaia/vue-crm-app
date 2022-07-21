@@ -1,6 +1,7 @@
 <script setup>
 import { useCardsStore } from "@/stores/cards";
 import { computed } from "@vue/reactivity";
+import CardRemove from "./CardRemove.vue";
 
 const props = defineProps({
   id: String,
@@ -13,10 +14,13 @@ const cards = computed(() => store.getCardsByBoardId(props.id));
 <template>
   <div v-for="card in cards" :key="card.id" class="col-md-4 my-3">
     <div class="card shadow-sm">
-      <div class="card-header">
+      <div
+        class="card-header d-flex align-items-center justify-content-between"
+      >
         <h2 class="fs-5 mb-0">
           {{ card.title }}
         </h2>
+        <CardRemove :id="card.id" :title="card.title" />
       </div>
       <div class="card-body">
         <p class="mb-0">
