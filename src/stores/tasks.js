@@ -21,5 +21,10 @@ export const useTasksStore = defineStore({
     getTasksByCardId(id) {
       return this.tasks.filter((task) => task.card_id === id);
     },
+    removeTask(id) {
+      this.tasks = this.tasks.filter((task) => task.id !== id);
+
+      updateTasksStorage(this.tasks);
+    },
   },
 });

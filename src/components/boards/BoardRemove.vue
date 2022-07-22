@@ -1,8 +1,7 @@
 <script setup>
 import toast from "@/alerts/toast";
 import { useBoardsStore } from "@/stores/boards";
-import { storeToRefs } from "pinia";
-import { useCardsStore } from "../../stores/cards";
+import { useCardsStore } from "@/stores/cards";
 
 const props = defineProps({
   id: Number,

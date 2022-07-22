@@ -2,7 +2,7 @@
 import { useCardsStore } from "@/stores/cards";
 import { computed } from "@vue/reactivity";
 import CardRemove from "@/components/cards/CardRemove.vue";
-import TasksList from "../tasks/TasksList.vue";
+import TasksList from "@/components/tasks/TasksList.vue";
 
 const props = defineProps({
   id: String,
