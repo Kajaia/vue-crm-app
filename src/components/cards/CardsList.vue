@@ -14,7 +14,7 @@ const cards = computed(() => store.getCardsByBoardId(props.id));
 
 <template>
   <div v-for="card in cards" :key="card.id" class="col-md-4 my-3">
-    <div class="card shadow-sm">
+    <div class="card h-100 shadow-sm">
       <div
         class="card-header d-flex align-items-center justify-content-between"
       >
