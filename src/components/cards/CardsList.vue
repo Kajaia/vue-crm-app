@@ -1,8 +1,10 @@
 <script setup>
 import { useCardsStore } from "@/stores/cards";
+import { ref } from "vue";
 import { computed } from "@vue/reactivity";
 import CardRemove from "@/components/cards/CardRemove.vue";
 import TasksList from "@/components/tasks/TasksList.vue";
+import TasksForm from "@/components/tasks/TasksForm.vue";
 
 const props = defineProps({
   id: String,
@@ -10,6 +12,8 @@ const props = defineProps({
 
 const store = useCardsStore();
 const cards = computed(() => store.getCardsByBoardId(props.id));
+
+const addTaskToggle = ref(false);
 </script>
 
 <template>
@@ -21,10 +25,18 @@ const cards = computed(() => store.getCardsByBoardId(props.id));
         <h2 class="fs-5 mb-0">
           {{ card.title }}
         </h2>
-        <CardRemove :id="card.id" :title="card.title" />
+        <div>
+          <button class="btn btn-sm">
+            <i class="fas fa-plus fa-sm"></i>
+          </button>
+          <CardRemove :id="card.id" :title="card.title" />
+        </div>
       </div>
       <div class="card-body">
         <TasksList :cardId="card.id" />
+      </div>
+      <div class="card-footer">
+        <TasksForm :cardId="card.id" />
       </div>
     </div>
   </div>

@@ -26,5 +26,15 @@ export const useTasksStore = defineStore({
 
       updateTasksStorage(this.tasks);
     },
+    addTask(title, cardId) {
+      this.tasks.push({
+        id: this.tasks.length + 1,
+        title: title,
+        position: this.tasks.position + 1,
+        card_id: cardId,
+      });
+
+      updateTasksStorage(this.tasks);
+    },
   },
 });
