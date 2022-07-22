@@ -2,6 +2,7 @@
 import { useCardsStore } from "@/stores/cards";
 import { computed } from "@vue/reactivity";
 import CardRemove from "@/components/cards/CardRemove.vue";
+import TasksList from "../tasks/TasksList.vue";
 
 const props = defineProps({
   id: String,
@@ -23,12 +24,7 @@ const cards = computed(() => store.getCardsByBoardId(props.id));
         <CardRemove :id="card.id" :title="card.title" />
       </div>
       <div class="card-body">
-        <p class="mb-0">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste,
-          maiores architecto. Nulla dolorum similique ex accusantium quisquam
-          molestias doloribus doloremque necessitatibus, commodi iure nisi quod
-          vero ducimus ad possimus quidem.
-        </p>
+        <TasksList :cardId="card.id" />
       </div>
     </div>
   </div>
