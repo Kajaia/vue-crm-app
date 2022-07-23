@@ -1,6 +1,5 @@
 <script setup>
 import { useCardsStore } from "@/stores/cards";
-import { ref } from "vue";
 import { computed } from "@vue/reactivity";
 import CardRemove from "@/components/cards/CardRemove.vue";
 import TasksList from "@/components/tasks/TasksList.vue";
@@ -12,8 +11,6 @@ const props = defineProps({
 
 const store = useCardsStore();
 const cards = computed(() => store.getCardsByBoardId(props.id));
-
-const addTaskToggle = ref(false);
 </script>
 
 <template>

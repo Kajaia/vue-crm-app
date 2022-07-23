@@ -30,9 +30,14 @@ export const useTasksStore = defineStore({
       this.tasks.push({
         id: this.tasks.length + 1,
         title: title,
-        position: this.tasks.position + 1,
+        position: this.tasks.length + 1,
         card_id: cardId,
       });
+
+      updateTasksStorage(this.tasks);
+    },
+    clearTasksByCardId(cardId) {
+      this.tasks = this.tasks.filter((task) => task.card_id !== cardId);
 
       updateTasksStorage(this.tasks);
     },
