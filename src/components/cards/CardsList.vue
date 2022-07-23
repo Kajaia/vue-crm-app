@@ -25,12 +25,7 @@ const addTaskToggle = ref(false);
         <h2 class="fs-5 mb-0">
           {{ card.title }}
         </h2>
-        <div>
-          <button class="btn btn-sm">
-            <i class="fas fa-plus fa-sm"></i>
-          </button>
-          <CardRemove :id="card.id" :title="card.title" />
-        </div>
+        <CardRemove :id="card.id" :title="card.title" />
       </div>
       <div class="card-body">
         <TasksList :cardId="card.id" />
