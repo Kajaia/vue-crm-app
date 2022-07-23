@@ -2,6 +2,7 @@
 import toast from "@/alerts/toast";
 import { useBoardsStore } from "@/stores/boards";
 import { useCardsStore } from "@/stores/cards";
+import { useTasksStore } from "@/stores/tasks";
 
 const props = defineProps({
   id: Number,
@@ -13,10 +14,11 @@ const store = useBoardsStore();
 
 const cardsStore = useCardsStore();
 
-const removeBoard = () => {
-  console.log(props.id);
-  store.removeBoard(props.id);
+const tasksStore = useTasksStore();
 
+const removeBoard = () => {
+  store.removeBoard(props.id);
+  tasksStore.clearTasksFromBoardCards(props.id);
   cardsStore.clearCardsByBoardId(props.id);
 
   toast("success", `Removed "${props.title}" board`);

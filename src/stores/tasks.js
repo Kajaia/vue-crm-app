@@ -1,4 +1,6 @@
 import { defineStore } from "pinia";
+import { computed } from "vue";
+import { useCardsStore } from "@/stores/cards";
 
 const updateTasksStorage = (tasks) => {
   localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -40,6 +42,15 @@ export const useTasksStore = defineStore({
       this.tasks = this.tasks.filter((task) => task.card_id !== cardId);
 
       updateTasksStorage(this.tasks);
+    },
+    clearTasksFromBoardCards(boardId) {
+      const store = useCardsStore();
+
+      const cards = store.getCardsByBoardId(boardId);
+
+      cards.forEach((card) => {
+        this.clearTasksByCardId(card.id);
+      });
     },
   },
 });

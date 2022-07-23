@@ -17,8 +17,6 @@ const addCard = () => {
   toast("success", `Added "${title.value}" card`);
 
   title.value = "";
-
-  console.log(store.cards);
 };
 </script>
 
